@@ -1,0 +1,58 @@
+/* Genel Stil */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+}
+
+/* Header Stil */
+header {
+    background: linear-gradient(to right, #3F51B5, #1A237E);
+    padding: 1rem 0;
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+header nav a:hover {
+    color: #C5CAE9;
+}
+
+/* Hakkımızda Konteyner */
+.container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Hakkımızda İçerik */
+.card-body h2 {
+    font-size: 1.75rem;
+    color: #3F51B5;
+    margin-bottom: 1rem;
+}
+
+.card-body p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Footer Stil */
+footer {
+    background: #333;
+    color: white;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #3F51B5;
+    text-decoration: none;
+}

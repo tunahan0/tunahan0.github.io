@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block icerik %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxiCar Gizlilik Politikası</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stil.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">MaxiCar Gizlilik Politikası</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-5">
+        <div class="container">
+            <section class="mb-5">
+                <h2 class="text-primary">1. Genel Bilgiler</h2>
+                <p>MaxiCar, kullanıcılarının gizliliğini ciddiyetle korur. Bu Gizlilik Politikası, MaxiCar web sitesi üzerinden yapılan veri toplama, kullanma ve saklama yöntemlerini açıklamaktadır. Web sitemizi kullanarak, bu gizlilik politikasına onay vermiş oluyorsunuz.</p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="text-primary">2. Toplanan Veriler</h2>
+                <p>MaxiCar, kullanıcı deneyimini iyileştirmek amacıyla kişisel bilgiler toplar. Toplanan bilgiler şunları içerebilir:</p>
+                <ul>
+                    <li>Ad ve soyad</li>
+                    <li>Telefon numarası</li>
+                    <li>E-posta adresi</li>
+                    <li>Adres ve ödeme bilgileri</li>
+                    <li>IP adresi ve tarayıcı bilgileri</li>
+                </ul>
+                <p>Bu bilgiler, yalnızca araç kiralama işlemleri, müşteri desteği, pazarlama ve güvenlik amaçlarıyla kullanılacaktır.</p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="text-primary">3. Verilerin Kullanımı</h2>
+                <p>Topladığımız kişisel veriler, aşağıdaki amaçlar doğrultusunda kullanılmaktadır:</p>
+                <ul>
+                    <li>Rezervasyon işlemlerini tamamlamak</li>
+                    <li>Müşteri destek hizmetleri sağlamak</li>
+                    <li>Hizmet ve web sitesi deneyimini geliştirmek</li>
+                    <li>Pazarlama faaliyetleri ve özel tekliflerden haberdar etmek</li>
+                    <li>Yasal gereklilikleri yerine getirmek</li>
+                </ul>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="text-primary">4. Verilerin Paylaşımı</h2>
+                <p>MaxiCar, kişisel verileri üçüncü taraflarla paylaşmaz, ancak aşağıdaki durumlarda veriler paylaşılabilir:</p>
+                <ul>
+                    <li>Hizmet sağlayıcılarla yapılan anlaşmalar doğrultusunda (örneğin, ödeme işleme şirketleri)</li>
+                    <li>Yasal yükümlülükler nedeniyle resmi talepler doğrultusunda</li>
+                    <li>Güvenlik tehditlerini önlemek amacıyla</li>
+                </ul>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="text-primary">5. Çerezler (Cookies) Kullanımı</h2>
+                <p>Web sitemiz, kullanıcı deneyimini iyileştirmek amacıyla çerezler kullanmaktadır. Çerezler, kullanıcıların web sitemizdeki tercihlerini ve gezinme alışkanlıklarını izlememizi sağlar. Çerezleri kullanmayı reddetmek için tarayıcı ayarlarınızı değiştirebilirsiniz, ancak bu, bazı özelliklerin düzgün çalışmamasına neden olabilir.</p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="text-primary">6. Verilerin Saklanması</h2>
+                <p>Toplanan kişisel veriler, yalnızca gerekli olduğu süre boyunca saklanacaktır. Verilerinizin güvenliğini sağlamak için uygun güvenlik önlemleri alınmaktadır.</p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="text-primary">7. Verilerin Güvenliği</h2>
+                <p>MaxiCar, kişisel verilerinizin güvenliğini sağlamak için endüstri standartlarına uygun güvenlik önlemleri almaktadır. Ancak, internet üzerinden veri iletiminin tamamen güvenli olacağı garanti edilemez.</p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="text-primary">8. Kullanıcı Hakları</h2>
+                <p>Yasalar gereği, kullanıcılar kişisel verilerine erişim, düzeltme, silme veya işleme kısıtlama hakkına sahiptir. Bu hakları kullanmak için bizimle iletişime geçebilirsiniz.</p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="text-primary">9. Politika Güncellemeleri</h2>
+                <p>MaxiCar, gizlilik politikasını zaman zaman güncelleyebilir. Güncellenmiş politika, web sitemizde yayımlanacak ve geçerli olacak şekilde duyurulacaktır.</p>
+            </section>
+
+            <section>
+                <h2 class="text-primary">10. İletişim</h2>
+                <p>Gizlilik politikamız hakkında sorularınız veya endişeleriniz varsa, bizimle şu iletişim bilgileri üzerinden iletişime geçebilirsiniz:</p>
+                <ul>
+                    <li>E-posta: <a href="mailto:support@maxicar.com" class="text-decoration-none">support@maxicar.com</a></li>
+                    <li>Telefon: <a href="tel:+1234567890" class="text-decoration-none">+123 456 7890</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block icerik %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Araçlar</title>
+    <!-- Bootstrap CSS bağlantısı -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-spacing {
+            margin-right: 20px; /* Butonlar arasına 20px boşluk */
+        }
+    
+        /* Buton grubu için stiller */
+        .btn-group-left, .btn-group-right {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    
+        .btn-group-right {
+            margin-left: auto; /* Sağ tarafa yaslamak için */
+        }
+    
+        /* Butonlar arasındaki boşluğu artırmak */
+        .btn-group-left a, .btn-group-right a {
+            margin-right: 8px; /* Her buton arasına 20px boşluk */
+        }
+    
+        /* Aktif butonun çevresini belirginleştirme */
+        .btn-primary.active {
+            border-color: #0d6efd; /* Aktif butonun kenar rengi */
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5); /* Aktif butonun çevresinde gölge */
+        }
+        
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Kartın gölgesi */
+    border: 2px solid var( #007bff); /* Primary rengi */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover animasyonu */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Hoverda büyüme efekti */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hoverda daha belirgin kart gölgesi */
+}
+
+.btn-primary {
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5); /* Buton için gölge (Primary rengi) */
+    transition: box-shadow 0.2s ease, transform 0.2s ease; /* Hover animasyonu */
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.7); /* Hoverda daha belirgin buton gölgesi */
+    transform: translateY(-2px); /* Hoverda buton hafifçe yukarı kayar */
+}
+
+    </style>
+    
+</head>
+<body>
+
+    <section id="featured-vehicles" class="py-5">
+        <div class="container">
+            <h2 class="mb-4 fw-bold text-primary text-center" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3)">ARAÇLAR</h2>
+            
+            <!-- Hem soldaki hem de sağdaki butonları aynı satırda hizalamak için flex kullanıyoruz -->
+            <div class="d-flex justify-content-between mb-4">
+                <!-- Sol Butonlar -->
+                <div class="btn-group-left" >
+                    <!-- Hepsi butonu, sadece boyut filtresini sıfırlar -->
+                    <a href="araclar" class="btn btn-outline-primary {% if not aktif_boyut %}active{% endif %}">Hepsi</a>
+                    <a href="araclar?boyut=sedan{% if aktif_tur %}&tur={{ aktif_tur }}{% endif %}" class="btn btn-outline-primary {% if aktif_boyut == 'sedan' %}active{% endif %}">Sedan</a>
+                    <a href="araclar?boyut=suv{% if aktif_tur %}&tur={{ aktif_tur }}{% endif %}" class="btn btn-outline-primary {% if aktif_boyut == 'suv' %}active{% endif %}">SUV</a>
+                    <a href="araclar?boyut=hat{% if aktif_tur %}&tur={{ aktif_tur }}{% endif %}" class="btn btn-outline-primary {% if aktif_boyut == 'hat' %}active{% endif %}">Hatchback</a>
+                    <a href="araclar?boyut=ticari{% if aktif_tur %}&tur={{ aktif_tur }}{% endif %}" class="btn btn-outline-primary {% if aktif_boyut == 'ticari' %}active{% endif %}">Ticari</a>
+                </div>
+
+                <!-- Sağ Butonlar -->
+                <div class="btn-group-right" >
+                    <!-- Hepsi butonu, sadece tur filtresini sıfırlar -->
+                    <a href="araclar" class="btn btn-outline-primary {% if not aktif_tur %}active{% endif %}">Hepsi</a>
+                    <a href="araclar?tur=luks{% if aktif_boyut %}&boyut={{ aktif_boyut }}{% endif %}" class="btn btn-outline-primary {% if aktif_tur == 'luks' %}active{% endif %}">Lüks</a>
+                    <a href="araclar?tur=eko{% if aktif_boyut %}&boyut={{ aktif_boyut }}{% endif %}" class="btn btn-outline-primary {% if aktif_tur == 'eko' %}active{% endif %}">Ekonomi</a>
+                </div>
+            </div>
+
+            <!-- Araçlar listesi -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                {% for vehicle in araclar %}
+                <div class="col">
+                    <div class="card  border-0 rounded-3 box-shadow" style="box-shadow: 0px 0px 6px #007bff;">
+                        <img src="{{ url_for('static', filename='img/' + vehicle[2]) }}" class="card-img-top" alt="{{ vehicle[1] }}">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate text-primary">{{ vehicle[1] }}</h5>
+                            <p class="card-text text-muted text-truncate">{{ vehicle[3] }}</p>
+                            <p class="card-text fw-bold">Fiyat: <span class="text-success">{{ vehicle[4] }} TL</span></p>
+                            <a href="/rezerve/{{vehicle[0]}}" class="btn btn-primary w-100">Kirala</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </section>
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 MaxiCar. Tüm hakları saklıdır. <a href="/gizlilik_politikasi" class="text-primary">Gizlilik Politikası</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS ve Popper.js bağlantıları -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript dosyasını dahil et -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+{% endblock %}

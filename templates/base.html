@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stil.css') }}">
+</head>
+<body>
+<div class="navbar-container">
+    <header class="bg-primary text-white py-3 shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo fs-3 fw-bold">MaxiCar</div>
+            <nav class="d-flex align-items-center gap-3">
+                <a href="/" class="nav-link-custom">Ana Sayfa</a>
+                <a href="/hizmetler" class="nav-link-custom">Hizmetler</a>
+                <a href="/hakkinda" class="nav-link-custom">Hakkımızda</a>
+                <a href="/iletisim" class="nav-link-custom">İletişim</a>
+                <div class="dropdown-custom">
+                    {% if session.get('username') %}
+                        <button class="dropdown-toggle-custom">
+                            {{ session.get('username') }}
+                        </button>
+                        <ul class="dropdown-menu-custom">
+                            <li><a href="/rezervasyonlarim">Rezervasyonlarım</a></li>
+                            <li><a href="/hesabim">Hesabım</a></li>
+                            <li class="dropdown-menu-custom1"><a href="/logout" >Çıkış Yap</a></li>
+                        </ul>
+                    {% else %}
+                        <a href="/giris" class="nav-link-custom">Giriş Yap</a>
+                    {% endif %}
+                </div>
+            </nav>
+        </div>
+    </header>
+</div>
+
+<!-- Main content -->
+{% block icerik %}
+{% endblock %}
+
+
+
+<!-- Custom JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownToggle = document.querySelector('.dropdown-toggle-custom');
+        const dropdownMenu = document.querySelector('.dropdown-menu-custom');
+
+        if (dropdownToggle && dropdownMenu) {
+            dropdownToggle.addEventListener('click', function () {
+                dropdownMenu.classList.toggle('show');
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

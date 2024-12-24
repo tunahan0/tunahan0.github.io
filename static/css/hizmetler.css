@@ -1,0 +1,70 @@
+/* Genel Stil */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+nav.navbar {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Hizmetler Bölümü */
+.services-section {
+    background-color: #f4f6f9;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    text-align: center;
+    padding: 2rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #0056b3;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+footer a {
+    color: #f8f9fa;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,12 @@
+.contact-hero {
+    height: 400px;
+    background: linear-gradient(to right, rgba(63, 81, 181, 0.7), rgba(26, 35, 126, 0.7)), url('images/contact-bg.jpg') no-repeat center center/cover;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.social-media-section .btn {
+    width: 150px;
+}
